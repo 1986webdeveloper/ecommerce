@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static compress  %}
+{% block title %}Home{% endblock %}
+{% block content %}
+  <div class="content-wrapper">
+    <div class="container">
+    <div class="row">
+        <div class="col-6">
+        <h2 class="h2">Import Data</h2>
+        </div>
+    </div>
+    <hr>
+    <div>
+        <form  action="{% url 'product:import' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div class="form-group">
+        <label class="form-label" for="customFile">{{form.file.label_tag }}</label>
+        <input class="form-control-file" type="file" name="file"><br>
+            {% if form.errors.file %}
+             <div class="alert alert-danger alert-dismissible fade show" style="margin-top: 1%; width:auto;">
+                <p class="text-danger">{{form.errors.file}}</p>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+             </div>
+            {% endif %}
+        </div>
+        <br>
+        OR
+        <br>
+        <label class="form-label" for="customFile">{{form.url.label_tag}}</label>
+        <input class="form-control" type="url" name="url"><br>
+        <button id="submit_btn" type="submit" class="btn btn-primary">Submit</button>
+         {% if form.non_field_errors %}
+             <div class="alert alert-danger alert-dismissible fade show" style="margin-top: 1%; width:auto;">
+                <p class="text-danger">{{form.non_field_errors}}</p>
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        {% endif %}
+    </form>
+    </div>
+</div>
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+  </div>
+{% endblock content %}
+{% block extra_js %}
+<script>
+    $("#daily").on('click',function (){
+
+       if ($("#daily_time").is(":hidden")){
+            $("#daily_time").removeAttr('hidden');
+            $("#submit_btn").css('visibility','hidden');
+            $("#daily_time").slideDown();
+
+       }
+       else {
+            $("#daily_time").hide();
+            $("#time").val('');
+           $("#submit_btn").css('visibility','visible');
+            $("#daily_time").slideUp();
+       }
+    });
+</script>
+{% endblock extra_js %}

@@ -1,0 +1,5 @@
+[MASTER]
+ignore=static,venv,README.md,credentials.json,requirements.txt,token.pickle,setup.cfg
+load-plugins=pylint_django
+generated-members=service.spreadsheet
+DJANGO_SETTINGS_MODULE='ecommerce.settings'
