@@ -36,9 +36,9 @@ class ImportProduct(FormView):
     success_message = ""
 
     def form_valid(self, form):
+
         file = form.cleaned_data["file"]
         url = form.cleaned_data["url"]
-
         if file:
             uploaded_file = UploadedFile.objects.create(file=file)  #
             records = []
@@ -64,6 +64,7 @@ class ImportProduct(FormView):
         """
         store records in to database
         """
+        print(len(records))
         for record in records:
             try:
                 cat, _ = Category.objects.get_or_create(
@@ -75,7 +76,7 @@ class ImportProduct(FormView):
                 colour, _ = Color.objects.get_or_create(
                     color=record.get("color").capitalize()
                 )
-                Product.objects.get_or_create(
+                ob, cr =Product.objects.get_or_create(
                     product_name=record.get("product_name"),
                     description=record.get("description"),
                     category=cat,
@@ -85,8 +86,9 @@ class ImportProduct(FormView):
                     size=record.get("size"),
                     type=record.get("type"),
                 )
+                print(cr)
             except Exception as e:
-                print(e)
+                print(e, "====")
 
 
 class ProductList(ListView):
@@ -122,7 +124,7 @@ class ExportExcel(View):
         font_style.font.bold = True
 
         columns = [
-            "Product Name",
+            "Product_name",
             "Description",
             "Category",
             "Brand",
@@ -174,7 +176,7 @@ class ExportCSV(View):
         writer = csv.writer(response)
         writer.writerow(
             [
-                "Product Name",
+                "Product_name",
                 "Description",
                 "Category",
                 "Brand",

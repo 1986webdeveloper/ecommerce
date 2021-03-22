@@ -5,6 +5,7 @@ import pandas as pd
 from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
+from django.conf import settings
 
 
 class GoogleSheet(object):
@@ -12,9 +13,9 @@ class GoogleSheet(object):
     SAMPLE_SPREADSHEET_ID = "1qbZy1JqtlvpVrYSaKU9-esipXox5RufzoOB1hR8UMOU"
     SAMPLE_RANGE_NAME = "A:Z"
     CLIENT_ID = (
-        "408628163025-8hqm66v244fiea05bnli2v21m0bna8ve.apps.googleusercontent.com"
+        settings.CLIENT_ID
     )
-    CLIENT_SECRET = "cWwUMFr1jTnGNIBNdMW0noZ8"
+    CLIENT_SECRET = settings.CLIENT_SECRET
 
     @classmethod
     def read(cls, sheet_id=None):

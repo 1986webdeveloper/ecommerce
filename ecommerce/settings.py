@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import json
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +26,13 @@ SECRET_KEY = '(^dqz%gp6pcb3o6+@*=)xek6gka-*+komd(3frdhpl@k)wc001'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# Secret key for Google spreadsheet API
+CLIENT_ID = os.environ.get('CLIENT_ID', 'unsafe-secret-id')
+CLIENT_SECRET = os.environ.get('CLIENT_SECRET', 'unsafe-secret-key')
+
+DEBUG = os.environ.get('DJANGO_DEBUG', "True") == "True"
+
 
 ALLOWED_HOSTS = []
 
@@ -87,7 +95,7 @@ DATABASES = {
 
         'USER': 'postgres',
 
-        'PASSWORD': 'root',
+        'PASSWORD': 'agc123',
 
         'HOST': 'localhost',
 

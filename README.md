@@ -1,50 +1,69 @@
-# ecommerce
+# E-Commerce
 
-## Setup
+## Product Management System - E-commerce
 
-The first thing to do is to clone the repository:
+##Features
+- Import data in CSV/Xlsx/Google spreadsheet format
+- Export data in CSV/Xlsx format.
+- Update product info according to requirement.
+- Maintain data effectively.
+
+This is simple product management system where we can Import data from CSV/Xlsx/Google-spreed-sheet and export data in CSV/Xlsx format.
+
+## Column requirements in CSV/Xlsx/Google spreadsheet to upload file:
+
+- Product_name
+- Description
+- Category
+- Brand
+- Color
+- Price(only 2 digits are allowed after decimal e.g = $250.89)
+- Size
+- Type
+
+##Steps for Installation.
+
+1. Clone this project from repository using below command.
 
 ```shell script
 $ git clone https://github.com/1986webdeveloper/ecommerce.git
 $ cd ecommerce
 ```
 
-Create a virtual environment to install dependencies in and activate it:
-
-Install python 3 and virtual environment 
-
-Make virtualenv for ecommerce :
-
+2. Create virtual environment to install dependencies.
 
 ```shell script
 $ virtualenv venv -p python3
 ``` 
- 
-Activate virtual environment : 
 
+3. Activate virtual environment.
 
 ```shell script
 $ source venv/bin/activate
 ```
 
-Then install the dependencies:
+4. Install all the dependencies using below command.
 
 ```shell script
 (venv)$ pip install -r requirements.txt
 ```
 
-Once `pip` has finished downloading the dependencies:
+5. Setup PostgreSQL
+    - Install the postgresql database in your local computer from the official [site link](https://www.postgresql.org/download/).
+    
+6. Create a new database using the postgresql command line
 
-Make database in postgresql and update database settings in settings.py file.
+```shell script
+$ CREATE DATABASE import_export
+```
 
-
-Apply Migrations:
+7. After creating database apply migrations using below command
 
 ```shell script
 (venv)$ python manage.py migrate
 ```
 
-Run server :
+8. Run project on server using below command:
 ```shell script
 (venv)$ python manage.py runserver
 ```
