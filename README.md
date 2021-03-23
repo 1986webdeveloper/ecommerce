@@ -15,7 +15,7 @@ This is simple product management system where we can Import data from CSV/Xlsx/
 - category
 - brand
 - color
-- price(only 2 digits are allowed after decimal e.g = 250.89)
+- price(only two digits are allowed after decimal e.g = 250.89)
 - size
 - type
 
