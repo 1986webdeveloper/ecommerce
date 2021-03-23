@@ -8,7 +8,7 @@
 
 This is simple product management system where we can Import data from CSV/Xlsx/Google-spreed-sheet and export data in CSV/Xlsx format.
 
-## Column required in CSV/Xlsx/Google spreadsheet to upload file:
+## The following column fields are mandatory in CSV/Xlsx/Google spreadsheet to upload a file
 
 - Product_name
 - Description
