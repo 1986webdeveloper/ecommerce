@@ -56,9 +56,10 @@ $ CREATE DATABASE import_export
 ```
 
 7. Change username and password for database in .env file according to your postgres configuration.
-e.g  If your postgres username is 'ABC' and password is 'XYZ', then update .env as
+```e.g  If your postgres username is 'ABC' and password is 'XYZ', then update .env file as
       DB_USER=ABC
       DB_PASSWORD=XYZ
+```
 
 8. After creating database apply migrations using below command
 
