@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <title></title>
+   {% block css %}
+     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'js/jQuery.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+     <script src="{% static 'js/infinite.min.js' %}"></script>
+    {% endblock %}
+
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  {% block sidebar %}
+  {% endblock %}
+  <div class="content-wrapper">
+   {% block container %}
+
+   {% endblock %}
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+  </div>
+</body>
+</html>
+{% block script %}{% endblock %}
+
+

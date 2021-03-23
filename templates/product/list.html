@@ -1,4 +1,6 @@
 {% extends 'product/base.html' %}
+{% load static %}
+
 {% block sidebar %}
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,9 +95,32 @@
                 <a class="infinite-more-link" href="?page={{ page_obj.next_page_number }}"></a>
             {% endif %}
             </div>
+
           </div>
         </div>
+
       </div>
 
 {% endblock %}
+
+{% block script %}
+<script>
+        $('.loading').on('mouseover',function () {
+            var infinite = new Waypoint.Infinite({
+            element: $('.infinite-container')[0],
+            onBeforePageLoad: function () {
+                $('.loading').show();
+            },
+            onAfterPageLoad: function ($items) {
+                $('.loading').hide();
+            }
+           });
+         })
+</script>
+{% endblock%}
+
+
+
+
+
 

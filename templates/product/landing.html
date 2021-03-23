@@ -1,4 +1,6 @@
 {% extends 'product/base.html' %}
+{% load static %}
+
 {% block sidebar %}
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,5 +73,25 @@
     </form>
     </div>
 </div>
+{% endblock %}
 
+{% block script %}
+    <script>
+    $("#daily").on('click',function (){
+
+       if ($("#daily_time").is(":hidden")){
+            $("#daily_time").removeAttr('hidden');
+            $("#submit_btn").css('visibility','hidden');
+            $("#daily_time").slideDown();
+
+       }
+       else {
+            $("#daily_time").hide();
+            $("#time").val('');
+           $("#submit_btn").css('visibility','visible');
+            $("#daily_time").slideUp();
+       }
+    });
+
+    </script>
 {% endblock %}
