@@ -10,14 +10,14 @@ This is simple product management system where we can Import data from CSV/Xlsx/
 
 ## The following column fields are mandatory in CSV/Xlsx/Google spreadsheet to upload a file
 
-- Product_name
-- Description
-- Category
-- Brand
-- Color
-- Price(only 2 digits are allowed after decimal e.g = 250.89)
-- Size
-- Type
+- product_name
+- description
+- category
+- brand
+- color
+- price(only 2 digits are allowed after decimal e.g = 250.89)
+- size
+- type
 
 ## Steps for installation:
 
@@ -55,13 +55,18 @@ $ source venv/bin/activate
 $ CREATE DATABASE import_export
 ```
 
-7. After creating database apply migrations using below command
+7. Change username and password for database in .env file according to your postgres configuration.
+e.g  If your postgres username is 'ABC' and password is 'XYZ', then update .env as
+      DB_USER=ABC
+      DB_PASSWORD=XYZ
+
+8. After creating database apply migrations using below command
 
 ```shell script
 (venv)$ python manage.py migrate
 ```
 
-8. Run project on server using below command:
+9. Run project on server using below command:
 ```shell script
 (venv)$ python manage.py runserver
 ```

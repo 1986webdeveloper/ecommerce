@@ -32,7 +32,7 @@ class ImportProduct(FormView):
 
     form_class = UploadFileForm
     template_name = "product/landing.html"
-    success_url = "product_list/"
+    success_url = "/"
     success_message = ""
 
     def form_valid(self, form):

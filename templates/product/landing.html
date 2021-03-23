@@ -1,8 +1,37 @@
-{% extends 'product/base.html' %}
+<!DOCTYPE html>
+<html>
 {% load static %}
+<head>
+  <title></title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/jQuery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/infinite.min.js' %}"></script>
+    <script>
+    $("#daily").on('click',function (){
 
-{% block sidebar %}
- <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+       if ($("#daily_time").is(":hidden")){
+            $("#daily_time").removeAttr('hidden');
+            $("#submit_btn").css('visibility','hidden');
+            $("#daily_time").slideDown();
+
+       }
+       else {
+            $("#daily_time").hide();
+            $("#time").val('');
+           $("#submit_btn").css('visibility','visible');
+            $("#daily_time").slideUp();
+       }
+    });
+
+</script>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,9 +65,7 @@
       </ul>
     </div>
   </nav>
-{% endblock %}
-
-{% block container %}
+  <div class="content-wrapper">
     <div class="container">
     <div class="row">
         <div class="col-6">
@@ -73,25 +100,9 @@
     </form>
     </div>
 </div>
-{% endblock %}
-
-{% block script %}
-    <script>
-    $("#daily").on('click',function (){
-
-       if ($("#daily_time").is(":hidden")){
-            $("#daily_time").removeAttr('hidden');
-            $("#submit_btn").css('visibility','hidden');
-            $("#daily_time").slideDown();
-
-       }
-       else {
-            $("#daily_time").hide();
-            $("#time").val('');
-           $("#submit_btn").css('visibility','visible');
-            $("#daily_time").slideUp();
-       }
-    });
-
-    </script>
-{% endblock %}
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+  </div>
+</body>
+</html>
