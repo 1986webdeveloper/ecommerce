@@ -1,8 +1,6 @@
-# E-Commerce
+## Product Management System 
 
-## Product Management System - E-commerce
-
-##Features
+## Features:
 - Import data in CSV/Xlsx/Google spreadsheet format
 - Export data in CSV/Xlsx format.
 - Update product info according to requirement.
@@ -21,7 +19,7 @@ This is simple product management system where we can Import data from CSV/Xlsx/
 - Size
 - Type
 
-##Steps for Installation.
+## Steps for installation:
 
 1. Clone this project from repository using below command.
 
