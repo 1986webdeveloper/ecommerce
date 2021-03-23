@@ -1,7 +1,7 @@
 ## Product Management System 
 
 ## Features:
-- Import data in CSV/Xlsx/Google spreadsheet format
+- Import data from CSV/Xlsx/Google spreadsheet format
 - Export data in CSV/Xlsx format.
 - Update product info according to requirement.
 - Maintain data effectively.
