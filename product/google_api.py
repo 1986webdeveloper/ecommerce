@@ -11,10 +11,8 @@ class GoogleSheet(object):
     SCOPES = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
     SAMPLE_SPREADSHEET_ID = "1qbZy1JqtlvpVrYSaKU9-esipXox5RufzoOB1hR8UMOU"
     SAMPLE_RANGE_NAME = "A:Z"
-    CLIENT_ID = (
-        "408628163025-8hqm66v244fiea05bnli2v21m0bna8ve.apps.googleusercontent.com"
-    )
-    CLIENT_SECRET = "cWwUMFr1jTnGNIBNdMW0noZ8"
+    CLIENT_ID = os.environ.get('CLIENT_ID', 'unsafe-secret-id')
+    CLIENT_SECRET = os.environ.get('CLIENT_SECRET', 'unsafe-secret-key')
 
     @classmethod
     def read(cls, sheet_id=None):
