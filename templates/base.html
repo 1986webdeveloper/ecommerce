@@ -12,25 +12,6 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
     <script src="{% static 'js/infinite.min.js' %}"></script>
-
-    <script>
-    $("#daily").on('click',function (){
-
-       if ($("#daily_time").is(":hidden")){
-            $("#daily_time").removeAttr('hidden');
-            $("#submit_btn").css('visibility','hidden');
-            $("#daily_time").slideDown();
-
-       }
-       else {
-            $("#daily_time").hide();
-            $("#time").val('');
-           $("#submit_btn").css('visibility','visible');
-            $("#daily_time").slideUp();
-       }
-    });
-
-</script>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
     {% include 'partial/navigation-bar.html' %}

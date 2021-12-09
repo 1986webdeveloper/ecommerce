@@ -11,7 +11,7 @@
     </div>
     <hr>
     <div>
-        <form  action="{% url 'data_import' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <form  action="{% url 'product:import' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
         <div class="form-group">
         <label class="form-label" for="customFile">{{form.file.label_tag }}</label>
         <input class="form-control-file" type="file" name="file"><br>

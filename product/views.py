@@ -12,7 +12,7 @@ from product.google_api import GoogleSheet
 from product.models import Brand, Category, Color, Product, UploadedFile
 
 
-class ImportProduct(FormView):
+class ImportProductView(FormView):
     """
     Import products
     either user can pass link of google sheet or file
@@ -57,7 +57,7 @@ class ImportProduct(FormView):
             records = GoogleSheet.read(sheet_id=sheet_id)
             self.store_products(records)
             self.success_message = "Google sheet Data is successfully imported."
-        return super(ImportProduct, self).form_valid(form)
+        return super(ImportProductView, self).form_valid(form)
 
     @staticmethod
     def store_products(records=[]):
@@ -89,7 +89,7 @@ class ImportProduct(FormView):
                 print(e)
 
 
-class ProductList(ListView):
+class ProductListView(ListView):
     """
     Product list view
     """
@@ -101,7 +101,7 @@ class ProductList(ListView):
         return Product.objects.all()
 
 
-class ExportExcel(View):
+class ExportExcelView(View):
     """
     Export the data of products into Excel file.
     """
@@ -161,7 +161,7 @@ class ExportExcel(View):
         return response
 
 
-class ExportCSV(View):
+class ExportCSVView(View):
     """
     Export the data of products into csv file.
     """

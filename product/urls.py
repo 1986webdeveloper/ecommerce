@@ -1,11 +1,11 @@
 from django.urls import path
-
 from product import views
 
+app_name = "product"
+
 urlpatterns = [
-    path("", views.ProductList.as_view(), name="product_list"),
-    path("data_import/", views.ImportProduct.as_view(), name="data_import"),
-    path("product_list/", views.ProductList.as_view(), name="product_list"),
-    path("export/xls/", views.ExportExcel.as_view(), name="export_data_xls"),
-    path("export/csv/", views.ExportCSV.as_view(), name="export_data_csv"),
+    path("", views.ProductListView.as_view(), name="list"),
+    path("import/", views.ImportProductView.as_view(), name="import"),
+    path("export/xls/", views.ExportExcelView.as_view(), name="export-xls"),
+    path("export/csv/", views.ExportCSVView.as_view(), name="export-csv"),
 ]
