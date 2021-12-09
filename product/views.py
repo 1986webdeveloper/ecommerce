@@ -103,7 +103,7 @@ class ProductList(ListView):
 
 class ExportExcel(View):
     """
-    Export the data of products into excel file.
+    Export the data of products into Excel file.
     """
 
     def get(self, request):
