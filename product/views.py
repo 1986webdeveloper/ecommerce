@@ -4,6 +4,7 @@ import re
 
 import pandas as pd
 import xlwt
+from ajax_datatable.views import AjaxDatatableView
 from django.http import HttpResponse
 from django.views import View
 from django.views.generic import FormView, ListView
@@ -205,3 +206,23 @@ class ExportCSVView(View):
             writer.writerow(row)
 
         return response
+
+
+class ProductAjaxDatatableView(AjaxDatatableView):
+    model = Product
+    title = 'Products'
+    initial_order = [["name", "asc"], ]
+    length_menu = [[10, 20, 50, 100, -1], [10, 20, 50, 100, 'all']]
+    search_values_separator = '+'
+
+    column_defs = [
+        AjaxDatatableView.render_row_tools_column_def(),
+        {'title': 'Product Name', 'name': 'name', 'visible': True, },
+        {'title': 'Description', 'name': 'description', 'visible': True, },
+        {'title': 'Category', 'name': 'category', 'foreign_field': 'category__name', 'visible': True, },
+        {'title': 'Brand', 'name': 'brand', 'foreign_field': 'brand__name', 'visible': True, },
+        {'title': 'Color', 'name': 'color', 'foreign_field': 'color__name', 'visible': True, },
+        {'title': 'size', 'name': 'price', 'visible': True, },
+        {'title': 'Price', 'name': 'size', 'visible': True, },
+        {'title': 'Type', 'name': 'type', 'visible': True, },
+    ]

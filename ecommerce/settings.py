@@ -46,9 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Third party apps
-    'django_celery_beat',
-    'django_celery_results',
     "compressor",
+    'ajax_datatable',
 
     # Local apps
     'product.apps.ProductConfig',

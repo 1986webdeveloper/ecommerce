@@ -9,4 +9,5 @@ urlpatterns = [
     path("import/", views.ImportProductView.as_view(), name="import"),
     path("export/xls/", views.ExportExcelView.as_view(), name="export-xls"),
     path("export/csv/", views.ExportCSVView.as_view(), name="export-csv"),
+    path("api/list/", views.ProductAjaxDatatableView.as_view(), name='list-api')
 ]
